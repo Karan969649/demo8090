@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -59,10 +58,9 @@ jobs:
 
       - name: Deploy to EKS with Customization
         run: |
-          kubectl config use-context arn:aws:iam::894665396443:role/AmazonEKSAutoClusterRole
           kubectl apply -f manifest/prod/namespace.yaml
           kubectl apply -f manifest/prod/deployment.yaml
           kubectl apply -f manifest/prod/service.yaml
           kubectl apply -f manifest/prod/ingress.yaml
           kubectl get svc -n irctc-prod
-```
+
